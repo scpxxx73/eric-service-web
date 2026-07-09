@@ -1,6 +1,6 @@
 const CONTACT = {
   lineId: "scpxxx",
-  lineUrl: "https://line.me/ti/p/~scpxxx",
+  lineUrl: "https://line.me/ti/p/I4pngm_YpX",
   email: "scpxxx@gmail.com"
 };
 
@@ -36,6 +36,8 @@ document.querySelectorAll("[data-email]").forEach((item) => {
 
 document.querySelectorAll("[data-line-link]").forEach((link) => {
   link.setAttribute("href", CONTACT.lineUrl);
+  link.setAttribute("target", "_blank");
+  link.setAttribute("rel", "noopener noreferrer");
 });
 
 document.querySelectorAll("[data-email-link]").forEach((link) => {
@@ -84,6 +86,13 @@ function copyEmail() {
   copyText(CONTACT.email, "已複製 Email");
 }
 
+function openLineContact() {
+  if (heroLinePanel) {
+    heroLinePanel.hidden = false;
+  }
+  window.open(CONTACT.lineUrl, "_blank", "noopener,noreferrer");
+}
+
 menuToggle?.addEventListener("click", () => {
   const isOpen = !navMenu.classList.contains("is-open");
   menuToggle.classList.toggle("is-open", isOpen);
@@ -97,9 +106,7 @@ navLinks.forEach((link) => {
 
 document.querySelectorAll("[data-show-line]").forEach((button) => {
   button.addEventListener("click", () => {
-    if (!heroLinePanel) return;
-    heroLinePanel.hidden = false;
-    heroLinePanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    openLineContact();
   });
 });
 

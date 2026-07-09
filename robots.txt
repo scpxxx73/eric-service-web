@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://scpxxx73.github.io/eric-service-web/sitemap.xml
